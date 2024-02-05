@@ -1,0 +1,21 @@
+#!/bin/bash
+read -p 'Arxiu: ' arxiu
+for linea in $(cat $arxiu); do 
+  sed -e '/^#/d' <$arxiu >free_coments.txt
+done
+cat free_coments.txt
+
+
+read -p 'Paraula a cercar :' paraula
+for linea2 in $(cat free_coments.txt); do 
+	if [ $paraula == $linea2 ]; then
+		$existeix = 'si';
+		echo $existeix;
+	fi
+if [$existeix == 'si']; then
+	echo "Existeix";
+else
+	echo "No existeix";
+fi
+done
+

@@ -1,0 +1,14 @@
+#!/bin/bash
+read -p 'Ruta fitxer on emmagatzemar paraules:  ' arxiu
+read -p 'Paraula:  ' paraula
+if [ -f $arxiu ]
+then
+	while [ $paraula != ':>' ]
+	do
+		echo $paraula >> $arxiu
+		read -p 'Paraula:  ' paraula
+	done
+else
+	echo 'NO EXISTEIX AQUEST FITXER ON EMMAGATEMZAR PARAULES'
+	echo $paraula >> $arxiu
+fi

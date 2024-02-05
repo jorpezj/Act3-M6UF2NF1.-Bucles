@@ -1,0 +1,11 @@
+#!/bin/bash
+read -p 'Cadena: ' nums
+declare -i zeros=0
+
+for numero in $nums; do
+  if [ $numero -eq 0 ];then
+	count2=$(($zeros+1))
+	zeros=count2
+  fi
+done
+echo $zeros
