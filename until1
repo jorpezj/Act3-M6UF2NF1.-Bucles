@@ -1,9 +1,0 @@
-#!/bin/bash
-parametre=0
-until [ $parametre == 3 ]
-	do
-		read -p 'parametre: ' parametre 
-		if [ $parametre != 3 ];then
-			echo 'ERROR';
-		fi
-	done
