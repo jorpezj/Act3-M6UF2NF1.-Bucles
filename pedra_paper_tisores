@@ -1,0 +1,35 @@
+#!/bin/bash
+read -p 'Jugar: Si o No? (s\n) ' jugar
+while [ $jugar != 'n' ]
+do
+	read -p 'Pedra, paper o tisores? (pedra\paper\tisores): ' input
+	eleccio_pc=`echo $((RANDOM%2))`
+	if [ $eleccio_pc == 0 ];then
+		eleccio_pc='pedra'
+	elif [ $eleccio_pc == 1 ];then
+		eleccio_pc='paper'
+	elif [ $eleccio_pc == 2 ];then
+		eleccio_pc='tisores'
+	fi
+	if [ $eleccio_pc == 'pedra' ] && [ $input == 'pedra' ];then
+                echo 'Empat.'
+        elif [ $eleccio_pc == 'paper' ] && [ $input == 'paper' ];then
+                echo 'Empat.'
+        elif [ $eleccio_pc == 'tisores' ] && [ $input == 'tisores' ];then
+                echo 'Empat.'
+        fi
+	if [ $eleccio_pc == 'pedra' ] && [ $input == 'paper' ];then
+		echo 'Guanyes tu.'
+	elif [ $eleccio_pc == 'paper' ] && [ $input == 'pedra' ];then 
+		echo 'Guanya el PC.'
+	elif [ $eleccio_pc == 'paper' ] && [ $input == 'tisores' ];then 
+		echo 'Guanyes tu.'
+	elif [ $eleccio_pc == 'tisores' ] && [ $input == 'paper' ];then 
+		echo 'Guanya el PC.'
+	elif [ $eleccio_pc == 'tisores' ] && [ $input == 'pedra' ];then 
+		echo 'Guanyes tu.'
+	elif [ $eleccio_pc == 'pedra' ] && [ $input == 'tisores' ];then 
+		echo 'Guanya el PC.'
+	fi
+	read -p 'Tornar a jugar: Si o No? (s\n) ' jugar
+done
