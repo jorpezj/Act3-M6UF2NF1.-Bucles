@@ -1,0 +1,29 @@
+#!/bin/bash
+#Rebem els noms d'usuari i els copiem al nou fitxer (passwd.txt)
+cut -d ":" -f 1 /etc/passwd > passwd.txt
+
+#Mentres quedin lineas a passwd.txt
+while read usuari;do
+	#Comprovem si conté majus
+	if [[ $usuari =~ [A-Z] ]];then
+	echo -e "$usuari";
+	fi
+done < passwd.txt
+
+
+validar=0
+
+read -p "Introdueix nom usuari: " user_name
+while [ validar != 1 ];
+do
+	read -p "Introdueix nom usuari: " user_name
+	while read usuari2;
+	do
+		if [[ $usuari2 == $user_name ]];then
+			echo 'Usuari Vàlid';
+			cat /etc/passwd | grep $user_name
+			validar=1
+		fi
+
+	done < passwd.txt
+done
